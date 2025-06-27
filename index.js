@@ -20,10 +20,17 @@ function createSlug2(str) {
     return str.toLowerCase().replaceAll(" ", "-")
 }
 
+// 5 
+
+function isPalindrome(str) {
+    return str === [...str].reverse().join("")
+}
+
 module.exports = {
     getInitials,
     createSlug,
     average,
     createSlug2,
+    isPalindrome,
 
 }
