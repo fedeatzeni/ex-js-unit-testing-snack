@@ -31,6 +31,13 @@ function createSlug3(str) {
     return str.toLowerCase()
 }
 
+// 7 
+function findPostById(list, id) {
+    list.forEach(el => { if (el.id === undefined || el.title === undefined || el.slug === undefined) throw new Error })
+    return list.find(el => el.id === id) || null
+}
+
+
 module.exports = {
     getInitials,
     createSlug,
@@ -38,4 +45,5 @@ module.exports = {
     createSlug2,
     isPalindrome,
     createSlug3,
+    findPostById,
 }

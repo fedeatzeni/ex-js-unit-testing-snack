@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average, createSlug2, isPalindrome, createSlug3 } = require("./index")
+const { getInitials, createSlug, average, createSlug2, isPalindrome, createSlug3, findPostById } = require("./index")
 
 // Snack 1
 // Creare un test che verifichi la seguente descrizione:
@@ -62,4 +62,24 @@ test("La funzione isPalindrome verifica se una stringa è un palindromo.", () =>
 
 test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido.", () => {
     expect(() => createSlug3("")).toThrow()
+})
+
+// Snack 7
+// Crea un array di oggetti posts, in cui ogni oggetto ha le proprietà id, title e slug.
+
+// Creare un test che verifichi le seguenti descrizioni:
+
+// "La funzione findPostById restituisce il post corretto dato l’array di post e l’id"
+
+// Creare uno o più test aggiuntivi che controllino che la struttura dati passati sia conforme 
+// (ogni post ha le proprietà id, title e slug, viene passato un id numerico).
+
+test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
+    const posts = [
+        { id: 1, title: "Primo post", slug: "primo-post" },
+        { id: 2, title: "Secondo post", slug: "secondo-post" }
+    ]
+    expect(findPostById(posts, 2)).toEqual({ id: 2, title: "Secondo post", slug: "secondo-post" })
+    expect(findPostById(posts, 4)).toBe(null)
+    expect(() => findPostById([1, 2, 3], 1)).toThrow()
 })
