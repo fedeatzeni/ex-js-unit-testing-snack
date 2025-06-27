@@ -11,12 +11,19 @@ function createSlug(str) {
 
 // 3
 function average(list) {
+    list.forEach(el => { if (isNaN(el)) throw new Error("Errore") })
     return list.reduce((acc, n) => acc + n, 0) / list.length
+}
+
+// 4
+function createSlug2(str) {
+    return str.toLowerCase().replaceAll(" ", "-")
 }
 
 module.exports = {
     getInitials,
     createSlug,
     average,
+    createSlug2,
 
 }
