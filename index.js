@@ -21,9 +21,14 @@ function createSlug2(str) {
 }
 
 // 5 
-
 function isPalindrome(str) {
     return str === [...str].reverse().join("")
+}
+
+// 6
+function createSlug3(str) {
+    if (!str) throw new Error
+    return str.toLowerCase()
 }
 
 module.exports = {
@@ -32,5 +37,5 @@ module.exports = {
     average,
     createSlug2,
     isPalindrome,
-
+    createSlug3,
 }
